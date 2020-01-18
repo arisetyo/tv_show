@@ -5,24 +5,29 @@
 
 import React, {Component} from 'react';
 import styles from './Show.css';
-import {url, endpoint} from '../utilities/constants';
+import {db_url, db_endpoint, moviedb_url, moviedb_discover, moviedb_key} from '../utilities/constants';
 import {Button, Tag, ToggleButton} from '../interface';
 
 class Show extends Component {
 	state = {};
 
 	componentDidMount() {
-		// test API
-		fetch(url)
+		// test DB API
+		fetch(db_url)
 		.then(response => response.json())
-		.then(json => console.table(json))
+		.then(json => console.table(json));
+
+		// test TV DB API
+		fetch(moviedb_url + moviedb_discover + `?api_key=${moviedb_key}`)
+		.then(response => response.json())
+		.then(json => console.table(json.results));
 	}
 
 	onCreate = () => {
 		// test API
-		fetch(url + endpoint)
+		fetch(db_url + db_endpoint)
 		.then(response => response.json())
-		.then(json => console.table(json))
+		.then(json => console.table(json));
 	}
 
 	render() {
