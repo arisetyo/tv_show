@@ -34,4 +34,4 @@ class Show extends Component {
 	}
 }
 
-export default Student;
+export default Show;

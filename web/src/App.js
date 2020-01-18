@@ -6,7 +6,7 @@
 import React from 'react';
 import {HashRouter, Route} from "react-router-dom";
 import {Content, Home, Navigation} from './chrome';
-import {Student} from './modules';
+import {Show} from './modules';
 import styles from './App.css';
 
 const App = () => (
@@ -16,7 +16,7 @@ const App = () => (
 			<Content>
 				<Route path="/" exact component={Home} />
 
-				<Route path="/student" component={Student}/>
+				<Route path="/show" component={Show}/>
 			</Content>
 		</div>
 	</HashRouter>
