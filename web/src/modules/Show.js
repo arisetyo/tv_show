@@ -5,13 +5,11 @@
 
 import React, {Component} from 'react';
 import styles from './Show.css';
+import {url, endpoint} from '../utilities/constants';
 import {Button, Tag, ToggleButton} from '../interface';
 
 class Show extends Component {
 	state = {};
-	
-	url = 'http://localhost:3001';
-	endpoint = '/api/v1/shows';
 
 	componentDidMount() {
 		// test API
@@ -21,7 +19,10 @@ class Show extends Component {
 	}
 
 	onCreate = () => {
-		console.log('create a new show');
+		// test API
+		fetch(url + endpoint)
+		.then(response => response.json())
+		.then(json => console.table(json))
 	}
 
 	render() {
