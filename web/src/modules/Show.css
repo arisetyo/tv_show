@@ -1,0 +1,12 @@
+/**
+ * @author: Arie M. Prasetyo (2020)
+ */
+
+.Show {
+  padding: 0 8px;
+}
+
+.Show > h1 {
+  font-family: 'DM Serif Display', serif;
+  color: rgb(2, 72, 11);
+}

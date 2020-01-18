@@ -1,0 +1,37 @@
+/**
+ * @author: Arie M. Prasetyo (2020)
+ * 
+ * color theme (Sleep Sense)
+ * main: 2, 72, 11
+ * support alpha: 3, 150, 166
+ * support beta: 4, 191, 173
+ * tertiary: 174, 230, 209
+ * complementary: 242, 94, 94
+ */
+
+.App {
+  padding: 8px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 11pt;
+}
+
+.App h1 {
+  font-family: 'DM Serif Display', serif;
+  font-size: 160%;
+}
+
+.App h2 {
+  font-family: 'DM Serif Display', serif;
+  font-size: 140%;
+}
+
+.App h3 {
+  font-family: 'DM Serif Display', serif;
+  font-size: 120%;
+}
+
+.App p {
+  font-size: 90%;
+  text-align: justify;
+  line-height: 1.4;
+}

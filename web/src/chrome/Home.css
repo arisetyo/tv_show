@@ -1,0 +1,12 @@
+/**
+ * home page
+ * @author: Arie M. Prasetyo (2020)
+ */
+
+.Home {
+	padding: 10px;
+}
+
+.Home > p {
+	padding: 10px 0;
+}

@@ -1,0 +1,44 @@
+/**
+ * @author: Arie M. Prasetyo (2020)
+ */
+
+.Navigation {
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 48px;
+	right: 0;
+	padding: 10px 20px;
+	box-sizing: border-box;
+	z-index: 1;
+	display: flex;
+	justify-content: space-between;
+	border-bottom: 1px solid rgba(2, 72, 11, 0.1);
+}
+
+.Navigation > .logo {
+	font-family: 'DM Serif Display', serif;
+	font-size: 140%;
+	color: rgb(3, 150, 166);
+}
+
+.Navigation > nav  {
+	padding-top: 10px;
+}
+
+.Navigation > nav > ul > li {
+	list-style-type: none;
+	display: inline-block;
+	margin: 0 10px;
+}
+
+.Navigation > nav > ul > li > a {
+	text-decoration: none;
+	color: rgb(2, 72, 11);
+	font-size: 90%;
+}
+
+.Navigation > nav > ul > li > a:hover {
+	text-decoration: underline;
+	color: rgb(242, 94, 94);
+}
