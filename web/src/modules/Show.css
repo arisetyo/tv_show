@@ -6,7 +6,59 @@
   padding: 0 8px;
 }
 
-.Show > h1 {
+.Show img.background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  mask-image: linear-gradient(to top,  rgba(255,255,255,0) 20%, rgba(255,255,255, 1) 100%);
+}
+
+.Show > .content {
+  position: absolute;
+  top: 40px;
+  left: 0;
+  width: 100%;
+  padding: 20px;
+  display: flex;
+}
+
+.Show > .content > .infoBox {
+  display: flex;
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+}
+
+.Show > .content > .infoBox > h1 {
   font-family: 'DM Serif Display', serif;
-  color: rgb(2, 72, 11);
+  color: white;
+  font-size: 240%;
+  text-shadow: 2px 2px black;
+}
+
+.Show > .content > .infoBox > .buttons > button {
+  margin: 4px 0;
+  width: 60px;
+}
+
+.Show > .content > .season {
+  flex-grow: 1;
+  padding: 10px 20px;
+}
+
+.Show > .content img.seasonPoster {
+  width: 185px;
+}
+
+/* mobile layout */
+
+@media (max-width: 800px) {
+  .Show > .content {
+    flex-direction: column;
+  }
+
+  .Show > .content > .season {
+    padding: 10px 0;
+  }
 }

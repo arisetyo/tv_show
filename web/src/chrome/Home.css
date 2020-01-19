@@ -4,13 +4,31 @@
  */
 
 .Home {
-	padding: 10px;
+	padding: 0 8px;
+}
+
+.Home img.background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  mask-image: linear-gradient(to top,  rgba(255,255,255,0) 20%, rgba(255,255,255, 1) 100%);
+  z-index: 0;
 }
 
 .Home > .resultContainer {
+  position: relative;
+  top: 320px;
+  margin: 0 auto;
+  width: 850px;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
+}
+
+.Home > .resultContainer::after {
+  content: '';
+  flex-basis: 160px;
 }
 
 .Home > .resultContainer > .result {
@@ -19,4 +37,14 @@
 
 .Home > .resultContainer > .result > span {
   font-family: 'DM Serif Display', serif;
+  color: rgb(242, 94, 94);
+}
+
+/* mobile layout */
+
+@media (max-width: 800px) {
+  .Home > .resultContainer {
+    top: 140px;
+    width: unset;
+  }
 }

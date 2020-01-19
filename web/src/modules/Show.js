@@ -14,6 +14,7 @@ const Show = () => {
 	const [season, setSeason] = useState({});
 	const {id} = useParams();
 	const poster_size = 'w185';
+	const background_size = '	w780';
 
 	// get show info
 	fetch(tmdb_url + `/tv/${id}?api_key=${tmdb_key}`)
@@ -39,18 +40,27 @@ const Show = () => {
 
 	return (
 		<div className={styles.Show}>
-			<h1>Show id</h1>
-			<Button onClick={onCreate}>Add Show +</Button>
-			<Button onClick={onCreate}>Fave Show &hearts;</Button>
+			<img
+				class={styles.background}
+				src={`${tmdb_image_url}${background_size}${show.backdrop_path}`}/>
 
-			<div>
-				<h1>{show.name}</h1>
-				<img src={`${tmdb_image_url}${poster_size}${show.poster_path}`}/>
-			</div>
-			
-			<div>
-				<h2>{season.name}</h2>
-				<p>{season.overview}</p>
+			<div className={styles.content}>
+				<div className={styles.infoBox}>
+					<h1>{show.name}</h1>
+
+					<img
+						className={styles.seasonPoster}
+						src={`${tmdb_image_url}${poster_size}${season.poster_path}`}/>
+
+					<div className={styles.buttons}>
+						<Button onClick={onCreate}>Fave &hearts;</Button>
+					</div>
+				</div>
+
+				<div className={styles.season}>
+					<h2>{season.name}</h2>
+					<p>{season.overview}</p>
+				</div>
 			</div>
 		</div>
 	)

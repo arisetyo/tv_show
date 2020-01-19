@@ -11,12 +11,17 @@ import styles from './Home.css';
 class Home extends Component {
 	state = {};
 	poster_size = 'w154/';
+	background_size = '	w780';
 
 	componentDidMount() {
 		// test DB API
 		// fetch(db_url)
 		// .then(response => response.json())
 		// .then(json => console.table(json));
+
+		fetch(tmdb_url + tmdb_discover_tv + `?` + `sort_by=vote_average.desc&vote_count.gte=10` + `&api_key=${tmdb_key}`)
+		.then(response => response.json())
+		.then(this.storeRandom);
 
 		// test TV DB API
 		fetch(tmdb_url + tmdb_discover_tv + `?api_key=${tmdb_key}`)
@@ -33,9 +38,20 @@ class Home extends Component {
 		})
 	}
 
+	storeRandom = data => {
+		this.setState({
+			retrieved_random: data.results,
+			random: data.results,
+		})
+	}
+
 	render() {
 		return (
 			<div className={styles.Home}>
+				<img
+					class={styles.background}
+					src={this.state.random ? `${tmdb_image_url}${this.background_size}${this.state.random[0].backdrop_path}` : null}/>
+
 				<div className={styles.resultContainer}>
 				{
 					this.state.results && this.state.results.map(show => (
