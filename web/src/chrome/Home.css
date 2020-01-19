@@ -7,6 +7,16 @@
 	padding: 10px;
 }
 
-.Home > p {
-	padding: 10px 0;
+.Home > .resultContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.Home > .resultContainer > .result {
+  flex-basis: 160px;
+}
+
+.Home > .resultContainer > .result > span {
+  font-family: 'DM Serif Display', serif;
 }

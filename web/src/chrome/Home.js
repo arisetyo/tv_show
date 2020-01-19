@@ -3,14 +3,54 @@
  * @author: Arie M. Prasetyo (2020)
  */
 
-import React from 'react';
+import React, {Component} from 'react';
+import {Link} from "react-router-dom";
+import {db_url, db_endpoint, tmdb_key, tmdb_url, tmdb_discover_tv, tmdb_image_url} from '../utilities/constants';
 import styles from './Home.css';
 
-const Home = () => (
-	<div className={styles.Home}>
-		<h1>TV Shows</h1>
-		<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-	</div>
-);
+class Home extends Component {
+	state = {};
+	poster_size = 'w154/';
+
+	componentDidMount() {
+		// test DB API
+		// fetch(db_url)
+		// .then(response => response.json())
+		// .then(json => console.table(json));
+
+		// test TV DB API
+		fetch(tmdb_url + tmdb_discover_tv + `?api_key=${tmdb_key}`)
+		.then(response => response.json())
+		.then(this.storeShows);
+	}
+
+	storeShows = data => {
+		this.setState({
+			retrieved_results: data.results,
+			results: data.results,
+			page: data.page,
+			total_pages: data.total_pages
+		})
+	}
+
+	render() {
+		return (
+			<div className={styles.Home}>
+				<div className={styles.resultContainer}>
+				{
+					this.state.results && this.state.results.map(show => (
+						<div className={styles.result}>
+							<Link to={`/show/${show.id}`}>
+								<img src={`${tmdb_image_url}${this.poster_size}${show.poster_path}`}/>
+							</Link>
+							<span>{show.original_name}</span>
+						</div>
+					))
+				}
+				</div>
+			</div>
+		)
+	}
+}
 
 export default Home;

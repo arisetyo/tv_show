@@ -3,41 +3,57 @@
  * @author: Arie M. Prasetyo (2020)
  */
 
-import React, {Component} from 'react';
-import styles from './Show.css';
-import {db_url, db_endpoint, moviedb_url, moviedb_discover, moviedb_key} from '../utilities/constants';
+import React, {useState} from 'react';
+import {useParams} from 'react-router-dom';
+import {db_url, db_endpoint, tmdb_key, tmdb_url, tmdb_discover, tmdb_image_url} from '../utilities/constants';
 import {Button, Tag, ToggleButton} from '../interface';
+import styles from './Show.css';
 
-class Show extends Component {
-	state = {};
+const Show = () => {
+	const [show, setShow] = useState({});
+	const [season, setSeason] = useState({});
+	const {id} = useParams();
+	const poster_size = 'w185';
 
-	componentDidMount() {
-		// test DB API
-		fetch(db_url)
-		.then(response => response.json())
-		.then(json => console.table(json));
+	// get show info
+	fetch(tmdb_url + `/tv/${id}?api_key=${tmdb_key}`)
+	.then(response => response.json())
+	.then(data => {
+		if (!show.name) {
+			setShow(data);
+		}
+	});
 
-		// test TV DB API
-		fetch(moviedb_url + moviedb_discover + `?api_key=${moviedb_key}`)
-		.then(response => response.json())
-		.then(json => console.table(json.results));
+	// get season info
+	fetch(tmdb_url + `/tv/${id}/season/1?api_key=${tmdb_key}`)
+	.then(response => response.json())
+	.then(data => {
+		if (!season.name) {
+			setSeason(data);
+		}
+	});
+
+	const onCreate = () => {
+		console.log('test');
 	}
 
-	onCreate = () => {
-		// test API
-		fetch(db_url + db_endpoint)
-		.then(response => response.json())
-		.then(json => console.table(json));
-	}
+	return (
+		<div className={styles.Show}>
+			<h1>Show id</h1>
+			<Button onClick={onCreate}>Add Show +</Button>
+			<Button onClick={onCreate}>Fave Show &hearts;</Button>
 
-	render() {
-		return (
-			<div className={styles.Show}>
-				<h1>Show module</h1>
-				<Button onClick={this.onCreate}>Add Show +</Button>
+			<div>
+				<h1>{show.name}</h1>
+				<img src={`${tmdb_image_url}${poster_size}${show.poster_path}`}/>
 			</div>
-		);
-	}
+			
+			<div>
+				<h2>{season.name}</h2>
+				<p>{season.overview}</p>
+			</div>
+		</div>
+	)
 }
 
 export default Show;
