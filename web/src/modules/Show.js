@@ -55,6 +55,8 @@ const Show = () => {
 					<div className={styles.buttons}>
 						<Button onClick={onCreate}>Fave &hearts;</Button>
 					</div>
+
+					<p>{show.overview}</p>
 				</div>
 
 				<div className={styles.season}>

@@ -6,7 +6,6 @@
 	position: absolute;
 	top: 0;
 	left: 0;
-	height: 48px;
 	right: 0;
 	padding: 10px 20px;
 	box-sizing: border-box;
@@ -23,5 +22,15 @@
 .Navigation > a > .logo {
 	font-family: 'DM Serif Display', serif;
 	font-size: 240%;
-	color: rgb(3, 150, 166);	
+	color: rgb(10, 10, 10);
+	background: rgba(3, 150, 166, 0.8);
+	padding: 0 18px 0 10px;
+	margin-top: 10px;
+	font-style: italic;
+}
+
+.Navigation > a > .logo > img {
+	display: inline-block;
+	width: 28px;
+  margin-right: 12px;
 }

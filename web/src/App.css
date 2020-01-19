@@ -15,23 +15,26 @@
   font-size: 11pt;
 }
 
-.App h1 {
+.App > h1 {
   font-family: 'DM Serif Display', serif;
   font-size: 160%;
-}
-
-.App h2 {
-  font-family: 'DM Serif Display', serif;
-  font-size: 140%;
-}
-
-.App h3 {
-  font-family: 'DM Serif Display', serif;
-  font-size: 120%;
 }
 
 .App p {
   font-size: 90%;
   text-align: justify;
   line-height: 1.4;
+}
+
+.App > footer {
+  position: absolute;
+  bottom: 0;
+  height: 12px;
+  width: 100%;
+  font-size: 50%;
+}
+
+.App > footer > a {
+  text-decoration: none;
+  color: grey;
 }

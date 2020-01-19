@@ -16,25 +16,35 @@
 
 .Show > .content {
   position: absolute;
-  top: 40px;
+  top: 72px;
   left: 0;
   width: 100%;
   padding: 20px;
   display: flex;
+  box-sizing: border-box;
 }
 
 .Show > .content > .infoBox {
   display: flex;
   display: flex;
   flex-direction: column;
-  width: 200px;
+  width: 220px;
+  padding: 10px 0;
 }
 
 .Show > .content > .infoBox > h1 {
   font-family: 'DM Serif Display', serif;
   color: white;
   font-size: 240%;
+  line-height: 97%;
   text-shadow: 2px 2px black;
+  white-space: nowrap;
+}
+
+.Show > .content > .infoBox > p {
+  font-size: 70%;
+  width: 185px;
+  text-align: unset;
 }
 
 .Show > .content > .infoBox > .buttons > button {
@@ -44,11 +54,14 @@
 
 .Show > .content > .season {
   flex-grow: 1;
-  padding: 10px 20px;
+  margin: 52px 20px;
+  padding: 10px;
+  background: rgb(10, 10, 10, 0.6);
 }
 
 .Show > .content img.seasonPoster {
   width: 185px;
+  margin-top: 8px
 }
 
 /* mobile layout */
@@ -60,5 +73,13 @@
 
   .Show > .content > .season {
     padding: 10px 0;
+  }
+
+  .Show > .content > .infoBox > p {
+    display: none;
+  }
+
+  .Show > .content > .season {
+    margin: unset;
   }
 }

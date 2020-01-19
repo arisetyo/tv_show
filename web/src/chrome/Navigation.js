@@ -14,7 +14,12 @@ class Navigation extends Component {
 	render() {
 		return (
 			<div className={styles.Navigation}>
-				<Link to="/"><span className={styles.logo}>TV Shows</span></Link>
+				<Link to="/">
+					<span className={styles.logo}>
+						<img src={`https://s3-ap-southeast-2.amazonaws.com/images.uixamp.net/television.svg`}/>
+						TiVi
+					</span>
+				</Link>
 			</div>
 		);
 	}

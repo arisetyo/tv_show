@@ -52,6 +52,17 @@ class Home extends Component {
 					class={styles.background}
 					src={this.state.random ? `${tmdb_image_url}${this.background_size}${this.state.random[0].backdrop_path}` : null}/>
 
+				{
+					this.state.random ?
+					<div className={styles.featured}>
+						<h2>Featured TV Show:</h2>
+						<h1>{this.state.random[0].original_name}</h1>
+						<p>{this.state.random[0].overview}</p>
+						<Link to={`/show/${this.state.random[0].id}`}>Go to show</Link>
+					</div>
+					: null
+				}
+
 				<div className={styles.resultContainer}>
 				{
 					this.state.results && this.state.results.map(show => (
@@ -59,7 +70,10 @@ class Home extends Component {
 							<Link to={`/show/${show.id}`}>
 								<img src={`${tmdb_image_url}${this.poster_size}${show.poster_path}`}/>
 							</Link>
-							<span>{show.original_name}</span>
+							<div className={styles.text}>
+								<span>{show.original_name}</span>
+								<p>{show.overview}</p>
+							</div>
 						</div>
 					))
 				}

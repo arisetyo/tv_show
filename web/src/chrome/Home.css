@@ -18,33 +18,76 @@
 
 .Home > .resultContainer {
   position: relative;
-  top: 320px;
+  top: -140px;
   margin: 0 auto;
-  width: 850px;
+  width: 840px;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
 }
 
-.Home > .resultContainer::after {
-  content: '';
-  flex-basis: 160px;
-}
-
 .Home > .resultContainer > .result {
   flex-basis: 160px;
+  height: 320px;
+  margin-bottom: 20px;
+  padding-bottom: 6px;
 }
 
-.Home > .resultContainer > .result > span {
-  font-family: 'DM Serif Display', serif;
+.Home > .resultContainer > .result > .text {
+  padding: 2px;
+}
+
+.Home > .resultContainer > .result > .text > span {
+  font-family: 'PT Serif', serif;
+  color: rgb(174, 230, 209);
+  padding: 0 2px;
+}
+
+.Home > .resultContainer > .result > .text > p {
+  color: #dedede;
+  font-size: 70%;
+  padding: 0 2px;
+  height: 80px;
+  mask-image: linear-gradient(to top,  rgba(255,255,255,0) 30%, rgba(255,255,255, 1) 100%);
+}
+
+.Home > .featured {
+  position: relative;
+  margin: 80px auto 0;
+  width: 840px;
+  background: rgba(10,10,10,0.5);
+  text-align: right;
+  padding: 10px;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.Home > .featured > h1 {
   color: rgb(242, 94, 94);
+  font-family: 'DM Serif Display', serif;
+}
+
+.Home > .featured > p {
+  text-align: right;
+  width: 300px;
+}
+
+.Home > .featured > a {
+  margin-top: 8px;
+  color: rgb(3, 150, 166);
 }
 
 /* mobile layout */
 
 @media (max-width: 800px) {
   .Home > .resultContainer {
-    top: 140px;
+    top: -220px;
+    width: unset;
+  }
+
+  .Home > .featured {
     width: unset;
   }
 }
