@@ -6,7 +6,7 @@
 import React, {useState} from 'react';
 import {useParams} from 'react-router-dom';
 import {db_url, db_endpoint, tmdb_key, tmdb_url, tmdb_discover, tmdb_image_url} from '../utilities/constants';
-import {Button, Tag, ToggleButton} from '../interface';
+import {Button, Donut} from '../interface';
 import styles from './Show.css';
 
 const Show = () => {
@@ -53,6 +53,7 @@ const Show = () => {
 						src={`${tmdb_image_url}${poster_size}${season.poster_path}`}/>
 
 					<div className={styles.buttons}>
+						{show.vote_average ? <Donut value={show.vote_average}/> : ''}
 						<Button onClick={onCreate}>Fave &hearts;</Button>
 					</div>
 

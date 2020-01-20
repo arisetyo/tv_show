@@ -3,7 +3,9 @@
  */
 
 import Button from './Button';
+import Donut from './Donut';
 
 export {
-	Button
+	Button,
+	Donut
 };

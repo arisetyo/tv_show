@@ -47,9 +47,16 @@
   text-align: unset;
 }
 
+.Show > .content > .infoBox > .buttons {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+}
+
 .Show > .content > .infoBox > .buttons > button {
   margin: 4px 0;
   width: 60px;
+  height: 26px;
 }
 
 .Show > .content > .season {
@@ -62,6 +69,10 @@
 .Show > .content img.seasonPoster {
   width: 185px;
   margin-top: 8px
+}
+
+.Show > .content > .infoBox > .score {
+  font-family: 'Rubik', sans-serif;
 }
 
 /* mobile layout */
