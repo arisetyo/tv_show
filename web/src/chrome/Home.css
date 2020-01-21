@@ -53,7 +53,7 @@
 
 .Home > .featured {
   position: relative;
-  margin: 80px auto 0;
+  margin: 20px auto 0;
   width: 840px;
   background: rgba(10,10,10,0.5);
   text-align: right;
@@ -62,6 +62,7 @@
   display: flex;
   flex-direction: column;
   align-items: flex-end;
+  box-sizing: border-box;
 }
 
 .Home > .featured > h1 {
@@ -71,12 +72,41 @@
 
 .Home > .featured > p {
   text-align: right;
-  width: 300px;
+  width: 360px;
 }
 
 .Home > .featured > a {
   margin-top: 8px;
   color: rgb(3, 150, 166);
+}
+
+.Home > .searchBar {
+  position: relative;
+  margin: 58px auto 0;
+  padding: 0;
+  width: 840px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+}
+
+.Home > .searchBar > span {
+  font-size: 80%;
+  color: rgb(242, 94, 94);
+  font-style: italic;
+  font-weight: bold;
+  margin-left: 10px;
+}
+
+.Home > .searchBar > input {
+  background: rgb(10,10,10);;
+  color: #eee;
+  line-height: 2em;
+  padding: 2px 8px 6px;
+  width: 208px;
+  outline: none;
+  border: none;
+  font-size: 1.3em;
 }
 
 /* mobile layout */

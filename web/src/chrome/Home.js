@@ -6,20 +6,18 @@
 import React, {Component} from 'react';
 import {Link} from "react-router-dom";
 import {db_url, db_endpoint, tmdb_key, tmdb_url, tmdb_discover_tv, tmdb_image_url} from '../utilities/constants';
+import {getRandomFeaturedUrl} from '../utilities/tools';
 import styles from './Home.css';
 
 class Home extends Component {
-	state = {};
+	state = {
+		keyword: ''
+	};
 	poster_size = 'w154/';
 	background_size = '	w780';
 
 	componentDidMount() {
-		// test DB API
-		// fetch(db_url)
-		// .then(response => response.json())
-		// .then(json => console.table(json));
-
-		fetch(tmdb_url + tmdb_discover_tv + `?` + `sort_by=vote_average.desc&vote_count.gte=10` + `&api_key=${tmdb_key}`)
+		fetch(tmdb_url + tmdb_discover_tv + `?` + getRandomFeaturedUrl() + `&api_key=${tmdb_key}`)
 		.then(response => response.json())
 		.then(this.storeRandom);
 
@@ -27,6 +25,21 @@ class Home extends Component {
 		fetch(tmdb_url + tmdb_discover_tv + `?api_key=${tmdb_key}`)
 		.then(response => response.json())
 		.then(this.storeShows);
+
+		// test DB API
+		// fetch(db_url)
+		// .then(response => response.json())
+		// .then(json => console.table(json));
+	}
+
+	componentDidUpdate(prevProps, prevState) {
+		const {keyword} = this.state;
+		if (prevState.keyword !== keyword && keyword.length > 3) {
+			this.setState({indicator: 'Searching...'});
+			fetch(tmdb_url + '/search/tv?' + `query=${keyword}` + `&api_key=${tmdb_key}`)
+			.then(response => response.json())
+			.then(this.storeShows);
+		}
 	}
 
 	storeShows = data => {
@@ -34,7 +47,8 @@ class Home extends Component {
 			retrieved_results: data.results,
 			results: data.results,
 			page: data.page,
-			total_pages: data.total_pages
+			total_pages: data.total_pages,
+			indicator: ''
 		})
 	}
 
@@ -45,27 +59,41 @@ class Home extends Component {
 		})
 	}
 
+	updateKeywordValue = e => {
+		this.setState({keyword: e.target.value});
+	}
+
 	render() {
+		const {indicator, keyword, random, results} = this.state;
 		return (
 			<div className={styles.Home}>
 				<img
 					class={styles.background}
-					src={this.state.random ? `${tmdb_image_url}${this.background_size}${this.state.random[0].backdrop_path}` : null}/>
+					src={random ? `${tmdb_image_url}${this.background_size}${random[0].backdrop_path}` : null}/>
+
+				<div className={styles.searchBar}>
+					<input
+						type='text'
+						placeholder='Search...'
+						value={keyword}
+						onChange={this.updateKeywordValue}/>
+						<span>{indicator}</span>
+				</div>
 
 				{
-					this.state.random ?
+					random ?
 					<div className={styles.featured}>
 						<h2>Featured TV Show:</h2>
-						<h1>{this.state.random[0].original_name}</h1>
-						<p>{this.state.random[0].overview}</p>
-						<Link to={`/show/${this.state.random[0].id}`}>Go to show</Link>
+						<h1>{random[0].original_name}</h1>
+						<p>{random[0].overview}</p>
+						<Link to={`/show/${random[0].id}`}>Go to show</Link>
 					</div>
 					: null
 				}
 
 				<div className={styles.resultContainer}>
 				{
-					this.state.results && this.state.results.map(show => (
+					results && results.map(show => (
 						<div className={styles.result}>
 							<Link to={`/show/${show.id}`}>
 								<img src={`${tmdb_image_url}${this.poster_size}${show.poster_path}`}/>

@@ -15,10 +15,10 @@ class Navigation extends Component {
 		return (
 			<div className={styles.Navigation}>
 				<Link to="/">
-					<span className={styles.logo}>
+					<div className={styles.logo}>
 						<img src={`https://s3-ap-southeast-2.amazonaws.com/images.uixamp.net/television.svg`}/>
 						TiVi
-					</span>
+					</div>
 				</Link>
 			</div>
 		);

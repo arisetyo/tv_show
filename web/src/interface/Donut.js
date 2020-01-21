@@ -39,8 +39,8 @@ export class Donut extends Component {
     .endAngle(4 * (Math.PI / 2));
 
     let arc = d3.arc()
-    .innerRadius(20)
-    .outerRadius(30)
+    .innerRadius(21)
+    .outerRadius(29)
     .startAngle(0)
 		.endAngle(((value * 4) / 10) * (Math.PI / 2));
 
