@@ -36,3 +36,11 @@
 	width: 28px;
   margin-right: 12px;
 }
+
+/* mobile layout */
+
+@media (max-width: 800px) {
+  .Navigation {
+		padding: 10px 19px;
+	}
+}
