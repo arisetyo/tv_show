@@ -20,15 +20,18 @@
   left: 0;
   width: 100%;
   padding: 20px;
-  display: flex;
   box-sizing: border-box;
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: 220px 1fr;
 }
 
 .Show > .content > .infoBox {
-  display: flex;
+  grid-column-start: 1;
+  grid-row: 1 / span 2;
   display: flex;
   flex-direction: column;
-  width: 220px;
+  width: 200px;
   padding: 10px 0;
 }
 
@@ -61,9 +64,10 @@
 }
 
 .Show > .content > .season {
-  flex-grow: 1;
-  margin: 52px 20px;
-  padding: 10px;
+  grid-column-start: 2;
+  grid-row-start: 1;
+  margin: 52px 0 0;
+  padding: 6px;
   background: rgb(10, 10, 10, 0.6);
 }
 
@@ -76,15 +80,43 @@
   font-family: 'Rubik', sans-serif;
 }
 
+.Show > .content > .episodes {
+  grid-row: 2;
+  grid-column-start: 2;
+}
+
 /* mobile layout */
 
 @media (max-width: 800px) {
   .Show > .content {
-    flex-direction: column;
+    display: block;
   }
 
-  .Show > .content > .season {
-    padding: 10px 0;
+  .Show > .content > .infoBox {
+    width: 100%;
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: 100px 1fr;
+  }
+
+  .Show > .content > .infoBox > img {
+    grid-column: 1;
+    grid-row: 1 / span 2;
+    margin-top: 0;
+    width: 92px;
+  }
+
+  .Show > .content > .infoBox > h1 {
+    white-space: normal;
+    font-size: 180%;
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  .Show > .content > .infoBox > .buttons {
+    grid-column: 2;
+    grid-row: 2;
+    width: unset;
   }
 
   .Show > .content > .infoBox > p {
@@ -92,6 +124,18 @@
   }
 
   .Show > .content > .season {
-    margin: unset;
+    margin: 0;
+    padding: 0;
+    font-size: 80%;
+    width: 100%;
+    overflow-y: scroll;
+    color: #ccc;
+  }
+
+  .Show > .content > .episodes {
+    margin-top: 8px;
+    width: 100%;
+    box-sizing: border-box;
+    font-size: 80%;
   }
 }

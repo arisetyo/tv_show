@@ -64,6 +64,11 @@ const Show = () => {
 					<h2>{season.name}</h2>
 					<p>{season.overview}</p>
 				</div>
+			
+				<div className={styles.episodes}>
+					This is for the episodes. This is for the episodes. This is for the episodes. This is for the episodes. This is for the episodes. This is for the episodes. This is for the episodes. This is for the episodes. This is for the episodes. This is for the episodes. This is for the episodes. This is for the episodes. This is for the episodes. This is for the episodes. This is for the episodes. This is for the episodes. This is for the episodes. This is for the episodes. This is for the episodes. This is for the episodes. This is for the episodes. This is for the episodes. This is for the episodes. 
+					This is for the episodes. This is for the episodes. This is for the episodes. This is for the episodes. This is for the episodes. This is for the episodes. This is for the episodes. This is for the episodes. This is for the episodes. This is for the episodes. This is for the episodes. This is for the episodes. This is for the episodes. This is for the episodes. This is for the episodes. This is for the episodes. This is for the episodes. This is for the episodes. This is for the episodes. This is for the episodes. This is for the episodes. This is for the episodes. This is for the episodes. 
+				</div>
 			</div>
 		</div>
 	)
