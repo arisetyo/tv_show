@@ -12,6 +12,7 @@ import styles from './Show.css';
 const Show = () => {
 	const [show, setShow] = useState({});
 	const [season, setSeason] = useState({});
+	const [selected, setSelected] = useState({});
 	const {id} = useParams();
 	const poster_size = 'w185';
 	const background_size = '	w780';
@@ -36,6 +37,10 @@ const Show = () => {
 
 	const onCreate = () => {
 		console.log('test');
+	}
+
+	const expandEpisode = id => {
+		setSelected(id);
 	}
 
 	return (
@@ -66,8 +71,21 @@ const Show = () => {
 				</div>
 			
 				<div className={styles.episodes}>
-					This is for the episodes. This is for the episodes. This is for the episodes. This is for the episodes. This is for the episodes. This is for the episodes. This is for the episodes. This is for the episodes. This is for the episodes. This is for the episodes. This is for the episodes. This is for the episodes. This is for the episodes. This is for the episodes. This is for the episodes. This is for the episodes. This is for the episodes. This is for the episodes. This is for the episodes. This is for the episodes. This is for the episodes. This is for the episodes. This is for the episodes. 
-					This is for the episodes. This is for the episodes. This is for the episodes. This is for the episodes. This is for the episodes. This is for the episodes. This is for the episodes. This is for the episodes. This is for the episodes. This is for the episodes. This is for the episodes. This is for the episodes. This is for the episodes. This is for the episodes. This is for the episodes. This is for the episodes. This is for the episodes. This is for the episodes. This is for the episodes. This is for the episodes. This is for the episodes. This is for the episodes. This is for the episodes. 
+					{
+						season.episodes && season.episodes.map(episode => (
+							<div className={`${styles.episode} ${episode.id === selected ? styles.selected : ''}`} onClick={() => expandEpisode(episode.id)}>
+								<div>
+									{episode.episode_number}. <strong>"{episode.name}"</strong> - <em>{Math.round(episode.vote_average * 10)}%</em>
+								</div>
+								<div className={styles.info}>
+									<div>
+										(Aired on {episode.air_date}) - "{episode.overview}"
+									</div>
+									<Button>Play &#9656;</Button>
+								</div>
+							</div>
+						))
+					}
 				</div>
 			</div>
 		</div>

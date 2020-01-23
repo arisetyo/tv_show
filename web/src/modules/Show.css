@@ -85,6 +85,41 @@
   grid-column-start: 2;
 }
 
+.Show > .content > .episodes > .episode {
+  padding: 6px;
+  border-bottom: 1px solid #333;
+  font-size: 80%;
+  height: 18px;
+  transition: height 0.5s;
+}
+
+.Show > .content > .episodes > .episode > .info {
+  display: none;
+}
+
+.Show > .content > .episodes > .episode:hover {
+  /* background: #888; */
+}
+
+.Show > .content > .episodes > .episode.selected {
+  height: 60px;
+}
+
+.Show > .content > .episodes > .episode.selected > .info {
+  display: flex;
+  padding-top: 2px;
+}
+
+.Show > .content > .episodes > .episode.selected > .info > div {
+  flex-grow: 1;
+  font-size: 80%;
+}
+
+.Show > .content > .episodes > .episode.selected > .info > button {
+  width: 300px;
+}
+
+
 /* mobile layout */
 
 @media (max-width: 800px) {
