@@ -45,9 +45,10 @@
 }
 
 .Show > .content > .infoBox > p {
-  font-size: 70%;
+  font-size: 80%;
   width: 185px;
   text-align: unset;
+  color: rgba(3, 150, 166, 0.8);
 }
 
 .Show > .content > .infoBox > .buttons {
@@ -91,18 +92,18 @@
   font-size: 80%;
   height: 18px;
   transition: height 0.5s;
+  cursor: pointer;
+  background-color: rgba(0,0,0,0.2);
 }
 
 .Show > .content > .episodes > .episode > .info {
   display: none;
 }
 
-.Show > .content > .episodes > .episode:hover {
-  /* background: #888; */
-}
-
 .Show > .content > .episodes > .episode.selected {
-  height: 60px;
+  height: 80px;
+  background-color: rgba(3, 150, 166, 0.8);
+  color: black;
 }
 
 .Show > .content > .episodes > .episode.selected > .info {
@@ -111,14 +112,15 @@
 }
 
 .Show > .content > .episodes > .episode.selected > .info > div {
-  flex-grow: 1;
-  font-size: 80%;
+  flex: 1;
+  padding-right: 10px;
 }
 
-.Show > .content > .episodes > .episode.selected > .info > button {
-  width: 300px;
+.Show > .content > .episodes > .episode > .info > button {
+  width: 100px;
+  height: 40px;
+  font-size: 140%;
 }
-
 
 /* mobile layout */
 

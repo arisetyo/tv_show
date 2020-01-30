@@ -58,7 +58,7 @@ const Show = () => {
 						src={`${tmdb_image_url}${poster_size}${season.poster_path}`}/>
 
 					<div className={styles.buttons}>
-						{show.vote_average ? <Donut value={show.vote_average}/> : ''}
+						{show.vote_average ? <Donut value={show.vote_average} w={60} h={60} showText={true}/> : ''}
 						<Button onClick={onCreate}>Fave &hearts;</Button>
 					</div>
 

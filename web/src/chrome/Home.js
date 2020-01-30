@@ -8,6 +8,7 @@ import {Link} from "react-router-dom";
 import {db_url, db_endpoint, tmdb_key, tmdb_url, tmdb_discover_tv, tmdb_image_url} from '../utilities/constants';
 import {getRandomFeaturedUrl} from '../utilities/tools';
 import styles from './Home.css';
+import {Donut} from '../interface';
 
 class Home extends Component {
 	state = {
@@ -97,11 +98,14 @@ class Home extends Component {
 						<div className={styles.result}>
 							<Link to={`/show/${show.id}`}>
 								<img src={`${tmdb_image_url}${this.poster_size}${show.poster_path}`}/>
+								<div className={styles.text}>
+									<span>{show.original_name}</span>
+									<p>{show.overview}</p>
+								</div>
+								<div className={styles.avg}>
+									{show.vote_average ? <Donut value={show.vote_average} w={30} h={30} showText={false} darkBg={true}/> : ''}
+								</div>
 							</Link>
-							<div className={styles.text}>
-								<span>{show.original_name}</span>
-								<p>{show.overview}</p>
-							</div>
 						</div>
 					))
 				}

@@ -16,8 +16,7 @@ class Navigation extends Component {
 			<div className={styles.Navigation}>
 				<Link to="/">
 					<div className={styles.logo}>
-						<img src={`https://s3-ap-southeast-2.amazonaws.com/images.uixamp.net/television.svg`}/>
-						TiVi
+						<img src={`https://s3-ap-southeast-2.amazonaws.com/images.uixamp.net/logo.png`}/>
 					</div>
 				</Link>
 			</div>

@@ -12,7 +12,7 @@
   top: 0;
   left: 0;
   width: 100%;
-  mask-image: linear-gradient(to top,  rgba(255,255,255,0) 20%, rgba(255,255,255, 1) 100%);
+  mask-image: linear-gradient(to top,  rgba(255,255,255,0) 15%, rgba(255,255,255, 1) 100%);
   z-index: 0;
 }
 
@@ -28,25 +28,53 @@
 
 .Home > .resultContainer > .result {
   flex-basis: 160px;
-  height: 320px;
+  height: 330px;
   margin-bottom: 20px;
   padding-bottom: 6px;
+  cursor: pointer;
+  position: relative;
 }
 
-.Home > .resultContainer > .result > .text {
-  padding: 2px;
+.Home > .resultContainer > .result > a {
+  text-decoration: none;
 }
 
-.Home > .resultContainer > .result > .text > span {
-  font-family: 'PT Serif', serif;
+.Home > .resultContainer > .result > a > .avg {
+  position: absolute;
+  top: 1mm;
+  right: 2mm;
+  transition: 0.5s top;
+}
+
+.Home > .resultContainer > .result > a > img {
+  transition: 0.5s margin-top;
+}
+
+.Home > .resultContainer > .result > a:hover > img {
+  margin-top: -8mm;
+}
+
+.Home > .resultContainer > .result > a:hover > .avg {
+  top: -4mm;
+}
+
+.Home > .resultContainer > .result > a > .text {
+  padding: 2px 0 0 0;
+}
+
+.Home > .resultContainer > .result > a > .text > span {
+  font-family: 'DM Serif Display', serif;
   color: rgb(174, 230, 209);
-  padding: 0 2px;
+  padding: 0;
+  min-height: 2.4em;
+  display: inline-block;
+  line-height: 1.2em;
 }
 
-.Home > .resultContainer > .result > .text > p {
+.Home > .resultContainer > .result > a > .text > p {
   color: #dedede;
   font-size: 70%;
-  padding: 0 2px;
+  padding: 0;
   height: 80px;
   mask-image: linear-gradient(to top,  rgba(255,255,255,0) 30%, rgba(255,255,255, 1) 100%);
 }
@@ -82,7 +110,7 @@
 
 .Home > .searchBar {
   position: relative;
-  margin: 60px auto 0;
+  margin: 72px auto 0;
   padding: 0;
   width: 840px;
   box-sizing: border-box;

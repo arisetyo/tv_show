@@ -10,9 +10,9 @@ export class Donut extends Component {
 		super(props);
 
 		this.dim = {
-			w: 60,
-			h: 60,
-			t: '30, 30'
+			w: props.w,
+			h: props.h,
+			t: `${props.h/2}, ${props.w/2}`
 		};
 
 		// my color scheme
@@ -27,20 +27,20 @@ export class Donut extends Component {
 	}
 	
 	componentDidMount() {
-		const {value} = this.props;
-		this.draw(value);
+		const {value, w} = this.props;
+		this.draw(value, w);
 	}
 	
-	draw(value) {
+	draw(value, w) {
     let arcBg = d3.arc()
-    .innerRadius(20)
-    .outerRadius(30)
+    .innerRadius(w/3)
+    .outerRadius(w/2)
     .startAngle(0)
     .endAngle(4 * (Math.PI / 2));
 
     let arc = d3.arc()
-    .innerRadius(21)
-    .outerRadius(29)
+    .innerRadius(w/3 + 1)
+    .outerRadius(w/2 - 1)
     .startAngle(0)
 		.endAngle(((value * 4) / 10) * (Math.PI / 2));
 
@@ -58,7 +58,7 @@ export class Donut extends Component {
   }
 
 	render() {
-		const {className, textClassName, value} = this.props;
+		const {className, textClassName, value, showText, darkBg = false} = this.props;
 		const {arcData, arcBgData, fillColor} = this.state;
 
 		return (
@@ -70,7 +70,7 @@ export class Donut extends Component {
 					<g transform={`translate(${this.dim.t})`}>
             <path
 							d={arcBgData}
-              fill={'rgba(255, 255, 255, 0.8)'}
+              fill={darkBg ? 'rgba(0, 0, 0, 0.8)' : 'rgba(255, 255, 255, 0.8)'}
 							strokeWidth={0}
 						/>
             <path
@@ -81,9 +81,12 @@ export class Donut extends Component {
 					</g>
 				</svg>
 
+				{
+				showText ? 
 				<div className={`${styles.text} ${textClassName || ''}`}>
 					{`${value * 10}%`}
-				</div>
+				</div> : ''
+				}
 			</div>
 		);
 	}

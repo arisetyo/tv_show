@@ -18,7 +18,7 @@ const App = () => (
 				<Route path="/show/:id" component={Show}/>
 			</Content>
 			<footer>
-				Icons made by <a href="https://www.flaticon.com/authors/prosymbols" title="Prosymbols">Prosymbols</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a>
+				Logo from <a href="https://www.brandcrowd.com/">BrandCrowd</a>
 			</footer>
 		</div>
 	</HashRouter>

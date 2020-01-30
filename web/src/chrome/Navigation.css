@@ -20,20 +20,11 @@
 }
 
 .Navigation > a > .logo {
-	font-family: 'DM Serif Display', serif;
-	font-size: 240%;
-	color: rgb(10, 10, 10);
-	background: rgba(3, 150, 166, 0.8);
-	padding: 0 18px 0 30px;
-	margin-top: 10px;
-	font-style: italic;
-	width: 160px;
+	padding: 0;
 }
 
 .Navigation > a > .logo > img {
-	display: inline-block;
-	width: 28px;
-  margin-right: 12px;
+	width: 80px;
 }
 
 /* mobile layout */
